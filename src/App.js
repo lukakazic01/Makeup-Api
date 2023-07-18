@@ -93,23 +93,25 @@ function App() {
         <p>Checkout</p>
         <button onClick={() => setIsCheckoutOpened(p => !p)}>{isCheckoutOpened ? 'close checkout' : 'show checkout'}</button>
         <Checkout items={checkoutItems} isCheckoutOpened={isCheckoutOpened} />
-        <table>
-            <thead>
-              <tr className="table">
-                <th>id</th>
-                <th>name</th>
-                <th>rating</th>
-                <th>color</th>
-                <th>brand</th>
-                <th>basket</th>
-              </tr>
-            </thead>
-            <tbody  className="scroll">
-            {data.map((item) => (
-                <Row item={item} key={item.id} handleAddingToBasket={handleAddingToBasket}/>
-            ) )}
-            </tbody>
-        </table>
+        <div className="table-wrapper">
+          <table>
+              <thead>
+                <tr className="table">
+                  <th>id</th>
+                  <th>name</th>
+                  <th>rating</th>
+                  <th>color</th>
+                  <th>brand</th>
+                  <th>basket</th>
+                </tr>
+              </thead>
+              <tbody  className="scroll">
+              {data.map((item) => (
+                  <Row item={item} key={item.id} handleAddingToBasket={handleAddingToBasket}/>
+              ) )}
+              </tbody>
+          </table>
+        </div>
       </>
       ) : (
         <div className="loader-wrapper">
