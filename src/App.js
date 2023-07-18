@@ -9,7 +9,7 @@ import Checkout from "./Checkout";
 
 function App() {
   const [data, setData] = useState(null);
-  const [initalData, setInitalData] = useState(null);
+  const [initialData, setInitalData] = useState(null);
   const [isBasketOpened, setIsBasketOpened] = useState(false);
   const [basketItems, setBasketItems] = useState([]);
   const [isCheckoutOpened, setIsCheckoutOpened] = useState(false);
@@ -33,7 +33,7 @@ function App() {
       setData(data.filter((item) => item.brand === nyx))
     }
     if (!anada && !nyx) {
-      setData(initalData)
+      setData(initialData)
     }
   }
 
@@ -47,7 +47,7 @@ function App() {
     if(searched.length > 0 && value !== '') {
       setData(searched)
     } else {
-      setData(initalData)
+      setData(initialData)
     }
   }
 
@@ -78,6 +78,16 @@ function App() {
       <>
       <input onChange={(e) => handleSearch(e)} />
       <Filters handleFilters={handleFilters}/>
+      <button onClick={() => setIsBasketOpened(p => !p)}>{isBasketOpened ? 'close basket' : 'show basket'}</button>
+      <Basket
+          isBasketOpened={isBasketOpened}
+          basketItems={basketItems}
+          handleIncreasing={handleIncreasing}
+          handleDecreasing={handleDecreasing}
+          handleCheckout={handleCheckout}
+      />
+      <button onClick={() => setIsCheckoutOpened(p => !p)}>{isCheckoutOpened ? 'close checkout' : 'show checkout'}</button>
+      <Checkout items={checkoutItems} isCheckoutOpened={isCheckoutOpened} />
       <table>
         <div className="scroll">
           <thead>
@@ -97,16 +107,6 @@ function App() {
           </tbody>
         </div>
       </table>
-        <button onClick={() => setIsBasketOpened(p => !p)}>{isBasketOpened ? 'close basket' : 'show basket'}</button>
-        <Basket
-            isBasketOpened={isBasketOpened}
-            basketItems={basketItems}
-            handleIncreasing={handleIncreasing}
-            handleDecreasing={handleDecreasing}
-            handleCheckout={handleCheckout}
-        />
-        <button onClick={() => setIsCheckoutOpened(p => !p)}>{isCheckoutOpened ? 'close checkout' : 'show checkout'}</button>
-        <Checkout items={checkoutItems} isCheckoutOpened={isCheckoutOpened} />
       </>
       ) : (
           <>Loading...</>
