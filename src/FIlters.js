@@ -22,12 +22,12 @@ export default function Filters ({ handleFilters }) {
         }
     }
     return (
-        <>
+        <div>
             <span>pure anada</span>
             <input id="anada" type="checkbox" value="pure anada" onChange={(e) => handleCheckboxes(e)}/>
             <span>nyx</span>
             <input id="nyx" type="checkbox" value="nyx" onChange={(e) => handleCheckboxes(e)}/>
             <button onClick={() => handleFilters(filters)}>submit</button>
-        </>
+        </div>
     )
 }
