@@ -76,38 +76,40 @@ function App() {
       <div className="wrapper">
       {data ? (
       <>
-      <input onChange={(e) => handleSearch(e)} placeholder="pretraga" />
-      <p>Filteri</p>
-      <Filters handleFilters={handleFilters}/>
-      <p>Korpa</p>
-      <button onClick={() => setIsBasketOpened(p => !p)}>{isBasketOpened ? 'close basket' : 'show basket'}</button>
-      <Basket
+        <div className="search-wrapper">
+           <input onChange={(e) => handleSearch(e)} placeholder="pretraga" className="search" />
+        </div>
+        <p>Filteri</p>
+        <Filters handleFilters={handleFilters}/>
+        <p>Korpa</p>
+        <button onClick={() => setIsBasketOpened(p => !p)}>{isBasketOpened ? 'close basket' : 'show basket'}</button>
+        <Basket
           isBasketOpened={isBasketOpened}
           basketItems={basketItems}
           handleIncreasing={handleIncreasing}
           handleDecreasing={handleDecreasing}
           handleCheckout={handleCheckout}
-      />
-      <p>Checkout</p>
-      <button onClick={() => setIsCheckoutOpened(p => !p)}>{isCheckoutOpened ? 'close checkout' : 'show checkout'}</button>
-      <Checkout items={checkoutItems} isCheckoutOpened={isCheckoutOpened} />
-      <table>
-          <thead>
-            <tr className="table">
-              <th>id</th>
-              <th>name</th>
-              <th>rating</th>
-              <th>color</th>
-              <th>brand</th>
-              <th>basket</th>
-            </tr>
-          </thead>
-          <tbody  className="scroll">
-          {data.map((item) => (
-              <Row item={item} key={item.id} handleAddingToBasket={handleAddingToBasket}/>
-          ) )}
-          </tbody>
-      </table>
+        />
+        <p>Checkout</p>
+        <button onClick={() => setIsCheckoutOpened(p => !p)}>{isCheckoutOpened ? 'close checkout' : 'show checkout'}</button>
+        <Checkout items={checkoutItems} isCheckoutOpened={isCheckoutOpened} />
+        <table>
+            <thead>
+              <tr className="table">
+                <th>id</th>
+                <th>name</th>
+                <th>rating</th>
+                <th>color</th>
+                <th>brand</th>
+                <th>basket</th>
+              </tr>
+            </thead>
+            <tbody  className="scroll">
+            {data.map((item) => (
+                <Row item={item} key={item.id} handleAddingToBasket={handleAddingToBasket}/>
+            ) )}
+            </tbody>
+        </table>
       </>
       ) : (
           <>Loading...</>

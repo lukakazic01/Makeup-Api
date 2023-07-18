@@ -12,7 +12,7 @@ export default function Row ({item, handleAddingToBasket}) {
                 ))}
                 </div>
                 <td>{item.brand}</td>
-                <td><button onClick={() => handleAddingToBasket(item)}>add to basket</button></td>
+                <td><button onClick={() => handleAddingToBasket(item)} className="basket-btn">add to basket</button></td>
             </tr>
     )
 }

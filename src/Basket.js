@@ -1,8 +1,5 @@
-import {useState} from "react";
-
 
 export default function Basket ({isBasketOpened, basketItems, handleIncreasing, handleDecreasing, handleCheckout}) {
-    const [rating, setRating] = useState(basketItems?.map((item) => item.rating))
     if (basketItems?.length > 0 && isBasketOpened) {
         return (
             <table>
