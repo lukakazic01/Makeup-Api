@@ -73,40 +73,45 @@ function App() {
     setCheckoutItems([...items]);
   }
   return (
+      <div className="wrapper">
+      {data ? (
       <>
-      {data &&
-      <div className="scroll">
       <input onChange={(e) => handleSearch(e)} />
       <Filters handleFilters={handleFilters}/>
       <table>
-        <thead>
-          <tr className="table">
-            <th>id</th>
-            <th>name</th>
-            <th>rating</th>
-            <th>color</th>
-            <th>brand</th>
-            <th>basket</th>
-          </tr>
-        </thead>
-        <tbody>
-        {data && data.map((item) => (
-            <Row item={item} key={item.id} handleAddingToBasket={handleAddingToBasket}/>
-        ) )}
-        </tbody>
+        <div className="scroll">
+          <thead>
+            <tr className="table">
+              <th>id</th>
+              <th>name</th>
+              <th>rating</th>
+              <th>color</th>
+              <th>brand</th>
+              <th>basket</th>
+            </tr>
+          </thead>
+          <tbody>
+          {data.map((item) => (
+              <Row item={item} key={item.id} handleAddingToBasket={handleAddingToBasket}/>
+          ) )}
+          </tbody>
+        </div>
       </table>
-    </div>}
-   <button onClick={() => setIsBasketOpened(p => !p)}>{isBasketOpened ? 'close basket' : 'show basket'}</button>
-   <Basket
-       isBasketOpened={isBasketOpened}
-       basketItems={basketItems}
-       handleIncreasing={handleIncreasing}
-       handleDecreasing={handleDecreasing}
-       handleCheckout={handleCheckout}
-   />
-   <button onClick={() => setIsCheckoutOpened(p => !p)}>{isCheckoutOpened ? 'close checkout' : 'show checkout'}</button>
-   <Checkout items={checkoutItems} isCheckoutOpened={isCheckoutOpened} />
-   </>
+        <button onClick={() => setIsBasketOpened(p => !p)}>{isBasketOpened ? 'close basket' : 'show basket'}</button>
+        <Basket
+            isBasketOpened={isBasketOpened}
+            basketItems={basketItems}
+            handleIncreasing={handleIncreasing}
+            handleDecreasing={handleDecreasing}
+            handleCheckout={handleCheckout}
+        />
+        <button onClick={() => setIsCheckoutOpened(p => !p)}>{isCheckoutOpened ? 'close checkout' : 'show checkout'}</button>
+        <Checkout items={checkoutItems} isCheckoutOpened={isCheckoutOpened} />
+      </>
+      ) : (
+          <>Loading...</>
+      )}
+   </div>
   )
 }
 
