@@ -17,13 +17,21 @@ td, th {
     padding: 8px;
 }
 
-.wrapper {
-    height: 400px;
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    overflow-x: hidden;
 }
 
 .scroll {
     overflow-y: scroll;
     overflow-x: hidden;
+    height: 400px;
+}
+
+tbody {
+    display: block;
 }
 
 .scroll-on-colors {
