@@ -26,13 +26,11 @@ function App() {
 
   const handleFilters = (filters) => {
     const [anada, nyx] = filters;
-    if (anada) {
-      setData(data.filter((item) => item.brand === anada))
-    }
-    if (nyx) {
-      setData(data.filter((item) => item.brand === nyx))
-    }
-    if (!anada && !nyx) {
+    if (anada || nyx) {
+      setData(initialData.filter((item) => {
+        if(item.brand === anada || item.brand === nyx) return item;
+      }))
+    } else {
       setData(initialData)
     }
   }
