@@ -26,6 +26,7 @@ function App() {
 
   const handleFilters = (filters) => {
     const [anada, nyx] = filters;
+    console.log(anada)
     if (anada || nyx) {
       setData(initialData.filter((item) => {
         if(item.brand === anada || item.brand === nyx) return item;
