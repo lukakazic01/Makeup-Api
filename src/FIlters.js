@@ -1,5 +1,5 @@
 import {useState} from "react";
-
+import './Filters.css'
 
 export default function Filters ({ handleFilters }) {
     const [filters, setFilters] = useState([]);
@@ -22,12 +22,16 @@ export default function Filters ({ handleFilters }) {
         }
     }
     return (
-        <div>
+        <div className="filter-wrapper">
+            <div>
             <span>pure anada</span>
             <input id="anada" type="checkbox" value="pure anada" onChange={(e) => handleCheckboxes(e)}/>
+            </div>
+            <div>
             <span>nyx</span>
             <input id="nyx" type="checkbox" value="nyx" onChange={(e) => handleCheckboxes(e)}/>
-            <button onClick={() => handleFilters(filters)}>submit</button>
+            </div>
+            <button onClick={() => handleFilters(filters)} className="filter-submit">submit</button>
         </div>
     )
 }

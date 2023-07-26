@@ -3,7 +3,10 @@
 * {
     font-family: 'Poppins', sans-serif!important;
 }
-
+.text-center {
+    text-align: center;
+    color: white;
+}
 html, body {
     height: 100%;
     overflow: hidden;

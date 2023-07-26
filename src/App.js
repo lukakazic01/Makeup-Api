@@ -78,20 +78,22 @@ function App() {
         <div className="search-wrapper">
            <input onChange={(e) => handleSearch(e)} placeholder="pretraga" className="search" />
         </div>
-        <p>Filteri</p>
-        <Filters handleFilters={handleFilters}/>
-        <p>Korpa</p>
-        <button onClick={() => setIsBasketOpened(p => !p)}>{isBasketOpened ? 'close basket' : 'show basket'}</button>
-        <Basket
-          isBasketOpened={isBasketOpened}
-          basketItems={basketItems}
-          handleIncreasing={handleIncreasing}
-          handleDecreasing={handleDecreasing}
-          handleCheckout={handleCheckout}
-        />
-        <p>Checkout</p>
-        <button onClick={() => setIsCheckoutOpened(p => !p)}>{isCheckoutOpened ? 'close checkout' : 'show checkout'}</button>
-        <Checkout items={checkoutItems} isCheckoutOpened={isCheckoutOpened} />
+        <div className="text-center">
+          <p>Filters</p>
+          <Filters handleFilters={handleFilters}/>
+          <p>Shop cart</p>
+          <button onClick={() => setIsBasketOpened(p => !p)}>{isBasketOpened ? 'close basket' : 'show basket'}</button>
+          <Basket
+            isBasketOpened={isBasketOpened}
+            basketItems={basketItems}
+            handleIncreasing={handleIncreasing}
+            handleDecreasing={handleDecreasing}
+            handleCheckout={handleCheckout}
+          />
+          <p>Checkout</p>
+          <button onClick={() => setIsCheckoutOpened(p => !p)}>{isCheckoutOpened ? 'close checkout' : 'show checkout'}</button>
+          <Checkout items={checkoutItems} isCheckoutOpened={isCheckoutOpened} />
+        </div>
         <div className="table-wrapper">
           <table>
               <thead>
